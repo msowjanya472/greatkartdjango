@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -156,3 +157,7 @@ EMAIL_HOST_USER = 'msowjanya472@gmail.com'
 EMAIL_HOST_PASSWORD = 'odaf erow gwrq wpmm'
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+PAYPAL_CLIENT_ID = 'AUFoVW94RFjMVLbLAWG9k5hmtQ1cE0dWEYU2nQC5OxsaMaxunrMpxKZ00EU0q_cZw0ND1DAbtxzZ4dSc'  # Replace with your PayPal Client ID
+PAYPAL_SECRET = 'ENLaFZZ3w438I178UVpNZjZAfirAgnnfQco2pBROsI0FdWtNe1s1Muzc1FRuAR-B8BGS72i5MqodeeLm'  # Replace with your PayPal Secret
+PAYPAL_MODE = 'sandbox'  # Use 'sandbox' for testing, 'live' for production
