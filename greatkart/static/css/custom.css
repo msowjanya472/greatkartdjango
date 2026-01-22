@@ -1,0 +1,49 @@
+.rate > input {
+    display: none;
+}
+
+.rate {
+    display: inline-block;
+    position: relative;
+    border: none;
+}
+
+.rate > label {
+    float: right;
+    cursor: pointer;
+    position: relative;
+}
+
+.rate > label:before {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-family: FontAwesome;
+    content: "\f005";
+    padding: 0.3rem 0.2rem;
+    color: #ccc;
+}
+
+.rate > label.half:before {
+    content: "\f089";
+    position: absolute;
+    left: 0;
+}
+
+.rate input:checked ~ label {
+    color: #ffb503;
+}
+
+.rate label:hover,
+.rate label:hover ~ label {
+    color: #ffb503;
+}
+
+.rate input:checked + label:hover,
+.rate input:checked ~ label:hover,
+.rate input:checked ~ label:hover ~ label {
+    color: #cc9000;
+}
+
+.rating-star i {
+    color: #ffb503 !important;
+}

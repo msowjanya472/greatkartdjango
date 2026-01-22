@@ -42,34 +42,7 @@ def payments(request, order_number):
     }
     return render(request, 'orders/payments.html', context)
 
-#
-#    if request.method == 'GET':
-#        # Display payment page
-#        if order_number:
-#            try:
-#                order = Order.objects.get(user=request.user, is_ordered=False, order_number=order_number)
-#                cart_items = CartItem.objects.filter(user=request.user)
-#                total = 0
-#                for cart_item in cart_items:
-#                    total += (cart_item.product.price * cart_item.quantity)
-#                tax = order.tax
-#                grand_total = order.order_total
-#
-#                context = {
-#                    'order': order,
-#                    'cart_items': cart_items,
-#                    'total': total,
-#                    'tax': tax,
-#                    'grand_total': f"{order.order_total:.2f}",
-#                }
-#                return render(request, 'orders/payments.html', context)
-#            except Order.DoesNotExist:
-#                return redirect('store')
-#        else:
-#            return redirect('store')
-#
-#    return redirect('store')
-#
+
 @csrf_exempt
 @require_POST
 @login_required
