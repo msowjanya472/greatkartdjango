@@ -1,217 +1,69 @@
-/* ===============================
-   GLOBAL
-================================ */
-
-body {
-    background-color: #f8f9fa;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ===============================
-   NAVBAR
-================================ */
-
-.navbar-brand {
-    font-weight: 600;
-}
-
-.nav-link {
-    font-weight: 500;
-}
-
-/* ===============================
-   CARDS
-================================ */
-
-.card {
-    border-radius: 6px;
-    border: 1px solid #e6e6e6;
-}
-
-.card-title {
-    font-weight: 600;
-}
-
-/* ===============================
-   PRODUCT LISTING
-================================ */
-
-.itemside {
-    display: flex;
-    align-items: center;
-}
-
-.itemside .aside {
-    margin-right: 15px;
-}
-
-.img-sm {
-    width: 80px;
-    height: auto;
-}
-
-/* ===============================
-   CART / CHECKOUT
-================================ */
-
-.table-shopping-cart td,
-.table-shopping-cart th {
-    vertical-align: middle;
-}
-
-.price-wrap .price {
-    font-weight: 600;
-    color: #000;
-}
-
-.price-wrap small {
-    display: block;
-}
-
-/* ===============================
-   FORMS
-================================ */
-
-.form-control {
-    border-radius: 4px;
-}
-
-label {
-    font-weight: 500;
-}
-
-/* ===============================
-   BUTTONS
-================================ */
-
-.btn-primary {
-    background-color: #3167eb;
-    border-color: #3167eb;
-}
-
-.btn-primary:hover {
-    background-color: #2554c7;
-    border-color: #2554c7;
-}
-
-.btn-light {
-    border: 1px solid #ddd;
-}
-
-/* ===============================
-   FOOTER
-================================ */
-
-.footer {
-    background-color: #fff;
-    border-top: 1px solid #e6e6e6;
-    padding: 20px 0;
-    margin-top: 40px;
-}
-
-.footer a {
-    color: #555;
-}
-
-.footer a:hover {
-    color: #000;
-}
-
-/* ===============================
-   UTILITIES
-================================ */
-
-.text-muted {
-    color: #6c757d !important;
-}
-
-.padding-y {
-    padding: 40px 0;
-}
-
-/* ===============================
-   RATING STARS
-================================ */
-
 /* Hide Radio button */
-.rate > input {
-    display: none;
+.rate > input{
+  display: none;
 }
 
-.rate {
-    display: inline-block;
-    border: 0;
+.rate{
+  display: inline-block;;
+  border: 0;
 }
 
-.rate > label {
-    float: right;
+.rate > label{
+  float: right;
 }
 
 /* Showing the stars */
-.rate > label:before {
-    display: inline-block;
-    font-size: 1.1rem;
-    font-family: FontAwesome;
-    content: "\f005";
-    margin: 0;
-    padding: 0.3rem .2rem;
-    cursor: pointer;
-    color: #ccc;
+.rate > label:before{
+  display: inline-block;
+  font-size: 1.1rem;
+  font-family: FontAwesome;
+  content: "\f005";
+  margin:0;
+  padding:0.3rem .2rem;
+  cursor: pointer;
 }
 
 /* Half star */
-.rate > label.half:before {
-    content: "\f089";
-    position: absolute;
-    padding-right: 0;
-    left: 0;
+.rate .half:before{
+  content: "\f089";
+  position: absolute;
+  padding-right: 0;
 }
 
 /* Click and hover */
-input:checked ~ label:before,
-label:hover ~ label:before {
-    color: #ffb503;
+input:checked ~ label, label:hover ~ label{
+  color: #ffb503;
 }
 
-/* hover highlight */
-input:checked + label:hover:before,
-input:checked ~ label:hover:before,
-input:checked ~ label:hover ~ label:before,
-label:hover ~ input:checked ~ label:before {
-    color: #cc9000;
+/* hover hightlight */
+input:checked + label:hover, input:checked ~ label:hover,input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label{
+  color: #cc9000;
 }
 
-.rating-star i {
-    color: #ffb503 !important;
+.rating-star i{
+  color: #ffb503 !important;
 }
 
-/* Rating display for showing customer ratings */
-.rating-display {
-    display: inline-block;
-    font-size: 1rem;
-    line-height: 1;
+
+
+ul.thumb{
+  margin: 0 auto;
+  padding: 0;
+  display: flex;          /* better than float */
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.rating-display i {
-    margin-right: 2px;
+ul.thumb li {
+  list-style: none;
 }
 
-.rating-display .fa-star {
-    color: #ffb503;
-}
-
-.rating-display .fa-star-half-o {
-    color: #ffb503;
-}
-
-.rating-display .fa-star-o {
-    color: #ccc;
+ul.thumb li img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;      /* prevents image distortion */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
 }

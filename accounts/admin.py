@@ -1,35 +1,25 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import Account
+from .models import Account, UserProfile
+from django.utils.html import format_html
+
+# Register your models here.
 
 class AccountAdmin(UserAdmin):
-    model = Account
+    list_display = ('email', 'first_name', 'last_name', 'username', 'last_login', 'date_joined', 'is_active')
+    list_display_links = ('email', 'first_name', 'last_name')
+    readonly_fields = ('last_login', 'date_joined')
+    ordering = ('-date_joined',)
 
-    # Fields to display in the admin list view
-    list_display = ('email', 'username', 'first_name', 'last_name', 'is_staff', 'is_superuser')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
 
-    # Fields editable directly in list view
-    list_editable = ('is_staff', 'is_superuser')
+class UserProfileAdmin(admin.ModelAdmin):
+    def thumbnail(self, object):
+        return format_html('<img src="{}" width="30" style="border-radius:50%;">'.format(object.profile_picture.url))
+    thumbnail.short_description = 'Profile Picture'
+    list_display = ('thumbnail', 'user', 'city', 'state', 'country')
 
-    # Fields that are searchable in admin
-    search_fields = ('email', 'username', 'first_name', 'last_name')
-
-    # Default ordering
-    ordering = ('email',)
-
-    # Fields shown on the user detail page
-    fieldsets = (
-        (None, {'fields': ('email', 'username', 'first_name', 'last_name', 'password')}),
-        ('Permissions', {'fields': ('is_staff', 'is_superuser', 'is_active', 'groups', 'user_permissions')}),
-    )
-
-    # Fields shown when adding a new user
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'username', 'first_name', 'last_name', 'password1', 'password2', 'is_staff', 'is_superuser')}
-        ),
-    )
-
-# Register the Account model with custom admin
 admin.site.register(Account, AccountAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -20,10 +21,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'v2*@li3nyu+1p+tiak*sli7y#x22$52w85nz2e@y!+d$5hkz)*'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -150,13 +151,14 @@ MESSAGE_TAGS = {
 
 
 # SMTP congig
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'msowjanya472@gmail.com'
-EMAIL_HOST_PASSWORD = 'odaf erow gwrq wpmm'
-EMAIL_USE_TLS = True
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = 'vwht wetr lqcl dlsd'
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 PAYPAL_CLIENT_ID = 'AUFoVW94RFjMVLbLAWG9k5hmtQ1cE0dWEYU2nQC5OxsaMaxunrMpxKZ00EU0q_cZw0ND1DAbtxzZ4dSc'  # Replace with your PayPal Client ID
 PAYPAL_SECRET = 'ENLaFZZ3w438I178UVpNZjZAfirAgnnfQco2pBROsI0FdWtNe1s1Muzc1FRuAR-B8BGS72i5MqodeeLm'  # Replace with your PayPal Secret
